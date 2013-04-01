@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>SICICI</title>
+<%= stylesheet_link_tag "/javascripts/ext-3.2.1/resources/css/ext-all", :cache => true %> 
+<%= stylesheet_link_tag "/javascripts/ext-3.2.1/examples/ux/statusbar/css/statusbar", :cache => true %> 
+<%= stylesheet_link_tag "layout"  %> 
+
+<%= javascript_include_tag "ext-3.2.1/adapter/ext/ext-base-debug", :cache => true %>
+<%= javascript_include_tag "ext-3.2.1/ext-all-debug", :cache => true %>
+<%= javascript_include_tag "ext-3.2.1/examples/ux/statusbar/StatusBar", :cache => true %>
+
+<script type="text/javascript">
+Ext.namespace('app');
+app.AUTHENTICATED_USERNAME = <%= session[:authenticated_username].to_s.to_json %>;
+app.SECTIONS = <%= @sections.to_json %>;
+app.SECTIONS_WRITABLE = <%= @sections_writable.to_json %>;
+app.HEAD_SECTION = "contact";
+</script>
+
+<% if @sections.length > 0 %>
+<%= javascript_include_tag (([ "base", "viewport" ] + @sections) + [ "boot" ]) %>
+<% end %>
+</head>
+<body><% if @sections.length == 0 %><h1 style="padding:25px;margin:25px;font-size:24px;">Sem acesso. Contate um administrador.</h1><% end %></body>
+</html>

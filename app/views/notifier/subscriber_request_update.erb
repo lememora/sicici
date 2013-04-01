@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Centro Cultural da Espanha_SP</title>
+</head>
+<body>
+<table style="border-collapse:collapse;border-spacing:0;">
+  <tr>
+    <td width="50" style="padding:0;margin:0;">&nbsp;</td>
+    <td width="600" style="padding:0;margin:0;">
+      <table style="border-collapse:collapse;border-spacing: 0;">
+        <tr>
+          <td width="600" height="50" style="padding:0;margin:0;">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="87" style="padding:0;margin:0;">
+            <img src="<%= APP_CONFIG["application_base_url"] %>/images/notifier/email-header.png" width="600" height="87"/>
+          </td>
+        </tr>
+        <tr>
+          <td height="4" style="padding:0;margin:0;line-height:4px;border-bottom:1px dashed #a5a5a5;">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="10" style="padding:0;margin:0;line-height:10px;">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="10" style="padding:0;margin:0;line-height:10px;">
+            <table style="border-collapse:collapse;border-spacing: 0;">
+              <tr>
+                <td width="312" style="padding:0;margin:0;font-size:10px;">+</td>
+                <td width="280" style="padding:0;margin:0;font-size:10px;">+</td>
+                <td style="padding:0;margin:0;font-size:10px;">+</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td height="14" style="padding:0;margin:0;line-height:14px;">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="38" style="background-color:#01aded;">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="40" style="background-color:#01aded;">
+            <table style="border-collapse:collapse;border-spacing: 0;">
+              <tr>
+                <td width="27" style="padding:0;margin:0;">&nbsp;</td>
+                <td width="508" height="40" style="padding:0;margin:0;color:white;font-size:28px;font-family:sans-serif;letter-spacing:-1.7px;">ATUALIZA&Ccedil;&Atilde;O DE CADASTRO</td>
+                <td width="40" height="40" style="padding:0;margin:0;color:#d1dcd6;line-height:40px;font-size:70px;font-family:monospace;font-weight:bolder;letter-spacing:2px;">+</td>
+                <td width="25" style="padding:0;margin:0;">&nbsp;</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td height="40" style="background-color:#01aded">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="24" style="padding:0;margin:0;">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="16" style="padding:0;margin:0;line-height:16px;">
+            <table style="border-collapse:collapse;border-spacing: 0;">
+              <tr>
+                <td width="27" style="padding:0;margin:0;">&nbsp;</td>
+                <td width="573" style="padding:0;margin:0;font-size:18px;font-family:sans-serif;color:#a5a5a5;letter-spacing:-0.92px;">Confirme o e-mail abaixo para continuar <%= @permalink ? "a sua inscrição" : "o seu cadastro" %>.</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td height="8" style="padding:0;margin:0;line-height:8px;border-bottom:1px solid #a5a5a5;">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="12" style="padding:0;margin:0;line-height:12px;">&nbsp;</td>
+        </tr>
+        <tr>
+          <td style="padding:0;margin:0;line-height:15px;">
+            <table style="border-collapse:collapse;border-spacing: 0;">
+              <tr>
+                <td width="29" style="padding:0;margin:0;">&nbsp;</td>
+                <td width="546" style="padding:0;margin:0;font-size:10px;font-family:sans-serif;letter-spacing:-0.1px;">Este é um e-mail automático enviado para confirmar <%= @permalink ? "a sua inscrição" : "o seu cadastro" %>. Se você quiser continuar, por favor clique no link abaixo indicado em destaque, e atualize o seu cadastro.</td>
+                <td width="25" style="padding:0;margin:0;">&nbsp;</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td height="20" style="padding:0;margin:0;">&nbsp;</td>
+        </tr>
+        <tr>
+          <td style="background-color:#e5e5e5;">
+            <table style="border-collapse:collapse;border-spacing: 0;">
+              <tr>
+                <td width="25" style="padding:0;margin:0;">&nbsp;</td>
+                <td height="30" width="550" style="padding:0;margin:0;line-height:30px;font-size:10px;font-weight:bold;font-family:sans-serif;"><a href="<%= APP_CONFIG["website_base_url"] %>/<%= @permalink ? "inscricoes/#{@permalink}" : 'cadastro' %>?id=<%= @subscriber["subscriber"]["hash_id"] %>" style="color:#ed0678;text-decoration:none;">Confirmar e-mail e continuar <%= @permalink ? "inscrição" : "cadastro" %>.</a></td>
+                <td width="25" style="padding:0;margin:0;">&nbsp;</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td height="18" style="padding:0;margin:0;">&nbsp;</td>
+        </tr>
+        <tr>
+          <td style="padding:0;margin:0;line-height:13px;">
+            <table style="border-collapse:collapse;border-spacing: 0;">
+              <tr>
+                <td width="29" style="padding:0;margin:0;">&nbsp;</td>
+                <td width="546" style="padding:0;margin:0;font-size:10px;font-family:sans-serif;">Ao confirmar o e-mail, você será redirecionado de volta à página de cadastro do CCE para continuar com <%= @permalink ? "a sua inscrição" : "o seu cadastro" %>. Obrigado.</td>
+                <td width="25" style="padding:0;margin:0;">&nbsp;</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td height="46" style="padding:0;margin:0;">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="10" style="padding:0;margin:0;line-height:10px;">
+            <table style="border-collapse:collapse;border-spacing: 0;">
+              <tr>
+                <td width="312" style="padding:0;margin:0;font-size:10px;">+</td>
+                <td width="280" style="padding:0;margin:0;font-size:10px;">+</td>
+                <td style="padding:0;margin:0;font-size:10px;">+</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td height="13" style="padding:0;margin:0;line-height:13px;border-bottom:1px dashed #a5a5a5;">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="5" style="padding:0;margin:0;line-height:5px;">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="48" style="padding:0;margin:0;">
+            <table style="border-collapse:collapse;border-spacing: 0;">
+              <tr>
+                <td height="48" width="122" style="padding:0;margin:0;">
+                  <!--<img src="<%= APP_CONFIG["application_base_url"] %>/images/notifier/email-footer-left.png" width="120" height="48"/>-->
+                </td>
+                <td height="48" width="395" style="padding:0;margin:0;">
+                  <table style="border-collapse:collapse;border-spacing: 0;">
+                    <tr>
+                      <td width="390" height="10" style="padding:0;margin:0;line-height:10px;">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td width="390" height="25" style="padding:0;margin:0;line-height:15px;color:#a5a5a5;font-size:10px;font-family:sans-serif;letter-spacing:-0.2px;">
+                        Centro Cultural da Espanha em São Paulo | Av. Angélica, 1091<br/>
+                        Higienópolis | São Paulo, SP | tel +55 11 3822.2627 | <a href="mailto:contato@ccebrasil.org.br" style="color:#a5a5a5;text-decoration:none;"><b>contato@ccebrasil.org.br</b></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="388" height="10" style="padding:0;margin:0;line-height:10px;">&nbsp;</td>
+                    </tr>
+                  </table>
+                </td>
+                <td height="48" width="35" style="padding:0;margin:0;"></td>
+                <td height="48" width="50" style="padding:0;margin:0;">
+                  <img src="<%= APP_CONFIG["application_base_url"] %>/images/notifier/email-footer-right.png" width="50" height="48"/>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td width="50" style="padding:0;margin:0;">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

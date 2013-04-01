@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Centro Cultural da Espanha_SP</title>
+</head>
+<body>
+<table style="border-collapse:collapse;border-spacing:0;">
+  <tr>
+    <td width="50" style="padding:0;margin:0;">&nbsp;</td>
+    <td width="600" style="padding:0;margin:0;">
+      <table style="border-collapse:collapse;border-spacing: 0;">
+        <tr>
+          <td width="600" height="50" style="padding:0;margin:0;">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="87" style="padding:0;margin:0;">
+            <img src="<%= APP_CONFIG["application_base_url"] %>/images/notifier/email-header.png" width="600" height="87"/>
+          </td>
+        </tr>
+        <tr>
+          <td height="4" style="padding:0;margin:0;line-height:4px;border-bottom:1px dashed #a5a5a5;">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="10" style="padding:0;margin:0;line-height:10px;">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="10" style="padding:0;margin:0;line-height:10px;">
+            <table style="border-collapse:collapse;border-spacing: 0;">
+              <tr>
+                <td width="312" style="padding:0;margin:0;font-size:10px;">+</td>
+                <td width="280" style="padding:0;margin:0;font-size:10px;">+</td>
+                <td style="padding:0;margin:0;font-size:10px;">+</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td height="14" style="padding:0;margin:0;line-height:14px;">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="38" style="background-color:#01aded;">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="40" style="background-color:#01aded;">
+            <table style="border-collapse:collapse;border-spacing: 0;">
+              <tr>
+                <td width="27" style="padding:0;margin:0;">&nbsp;</td>
+                <td width="508" height="40" style="padding:0;margin:0;color:white;font-size:28px;font-family:sans-serif;letter-spacing:-1.7px;">BEM VINDO AO CCE</td>
+                <td width="40" height="40" style="padding:0;margin:0;color:#d1dcd6;line-height:40px;font-size:70px;font-family:monospace;font-weight:bolder;letter-spacing:2px;">+</td>
+                <td width="25" style="padding:0;margin:0;">&nbsp;</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td height="40" style="background-color:#01aded">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="24" style="padding:0;margin:0;">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="16" style="padding:0;margin:0;line-height:16px;">
+            <table style="border-collapse:collapse;border-spacing: 0;">
+              <tr>
+                <td width="27" style="padding:0;margin:0;">&nbsp;</td>
+                <td width="573" style="padding:0;margin:0;font-size:18px;font-family:sans-serif;color:#a5a5a5;letter-spacing:-0.92px;">Seja bem-vindo ao Centro Cultural da Espanha - SP</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td height="8" style="padding:0;margin:0;line-height:8px;border-bottom:1px solid #a5a5a5;">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="12" style="padding:0;margin:0;line-height:12px;">&nbsp;</td>
+        </tr>
+        <% if @subscriber["subscriber"]["validated"] == false %>
+        <tr>
+          <td style="padding:0;margin:0;line-height:15px;">
+            <table style="border-collapse:collapse;border-spacing: 0;">
+              <tr>
+                <td width="29" style="padding:0;margin:0;">&nbsp;</td>
+                <td width="546" style="padding:0;margin:0;font-size:10px;font-family:sans-serif;letter-spacing:-0.1px;">Agora só falta mais um passo para você fazer parte do nosso mundo cultural. É só ler abaixo todas as informações que foram cadastradas no nosso site através de nosso formulário, e clicar no link "confirmar o meu cadastro" ao final do texto.</td>
+                <td width="25" style="padding:0;margin:0;">&nbsp;</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <% end %>
+        <tr>
+          <td height="10" style="padding:0;margin:0;line-height:10px;">&nbsp;</td>
+        </tr>
+        <tr>
+          <td style="padding:0;margin:0;">
+            <table style="border-collapse:collapse;border-spacing:0;">
+              <tr>
+                <td width="28" style="padding:0;margin:0;">&nbsp;</td>
+                <td height="30" width="550" style="padding:0;margin:0;line-height:30px;font-size:16px;font-family:sans-serif;color:#01aded;">Seus dados:</td>
+                <td width="25" style="padding:0;margin:0;">&nbsp;</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td height="4" style="padding:0;margin:0;line-height:4px;margin-top:1px solid #f0f0f0;">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="26" style="padding:0;margin:0;line-height:26px;">
+            <table style="border-collapse:collapse;border-spacing:0;">
+              <tr>
+                <td width="28" style="padding:0;margin:0;">&nbsp;</td>
+                <td height="16" width="550" style="padding:0;margin:0;line-height:16px;font-size:12px;font-family:sans-serif;color:#000000;letter-spacing:0.8px;">Dados Pessoais</td>
+                <td width="25" style="padding:0;margin:0;">&nbsp;</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:0;margin:0;">
+            <table style="border-collapse:collapse;border-spacing:0;">
+              <tr>
+                <td width="27" style="padding:0;margin:0;">&nbsp;</td>
+                <td width="550" style="padding:0;margin:0;">
+                  <table>
+                    <tr>
+                      <td width="108" height="18" style="padding:0;margin:0;color:#7b7776;font-size:10px;font-family:sans-serif;line-height:18px;">Nome</td>
+                      <td width="140" style="padding:0;margin:0;color:#000000;font-size:10px;font-family:sans-serif;"><%= @individual["individual"]["name"] %></td>
+                      <td width="108" height="18" style="padding:0;margin:0;color:#7b7776;font-size:10px;font-family:sans-serif;line-height:18px;">&nbsp;</td>
+                      <td width="140" style="padding:0;margin:0;color:#000000;font-size:10px;font-family:sans-serif;">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td width="108" height="18" style="padding:0;margin:0;color:#7b7776;font-size:10px;font-family:sans-serif;line-height:18px;">E-mail</td>
+                      <td width="140" style="padding:0;margin:0;color:#000000;font-size:10px;font-family:sans-serif;"><%= @subscriber["subscriber"]["email"] %></td>
+                      <td width="108" height="18" style="padding:0;margin:0;color:#7b7776;font-size:10px;font-family:sans-serif;line-height:18px;">&nbsp;</td>
+                      <td width="140" style="padding:0;margin:0;color:#000000;font-size:10px;font-family:sans-serif;">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td width="108" height="18" style="padding:0;margin:0;color:#7b7776;font-size:10px;font-family:sans-serif;line-height:18px;">Data de Nascimento</td>
+                      <td width="140" style="padding:0;margin:0;color:#000000;font-size:10px;font-family:sans-serif;"><%= @individual["individual_birthdate"] %></td>
+                      <td width="108" height="18" style="padding:0;margin:0;color:#7b7776;font-size:10px;font-family:sans-serif;line-height:18px;">Sexo</td>
+                      <td width="140" style="padding:0;margin:0;color:#000000;font-size:10px;font-family:sans-serif;"><%= @individual["individual_gender"] %></td>
+                    </tr>
+                    <tr>
+                      <td width="108" height="18" style="padding:0;margin:0;color:#7b7776;font-size:10px;font-family:sans-serif;line-height:18px;">Nacionalidade</td>
+                      <td width="140" style="padding:0;margin:0;color:#000000;font-size:10px;font-family:sans-serif;"><%= @individual["individual_citizenship_country"] %></td>
+                      <td width="108" height="18" style="padding:0;margin:0;color:#7b7776;font-size:10px;font-family:sans-serif;line-height:18px;">&nbsp;</td>
+                      <td width="140" style="padding:0;margin:0;color:#000000;font-size:10px;font-family:sans-serif;">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td width="108" height="18" style="padding:0;margin:0;color:#7b7776;font-size:10px;font-family:sans-serif;line-height:18px;">Áreas de atuação</td>
+                      <td width="140" style="padding:0;margin:0;color:#000000;font-size:10px;font-family:sans-serif;" colspan="3"><%= @individual["personal_activity_names"] %></td>
+                      <td width="108" height="18" style="padding:0;margin:0;color:#7b7776;font-size:10px;font-family:sans-serif;line-height:18px;">&nbsp;</td>
+                      <td width="140" style="padding:0;margin:0;color:#000000;font-size:10px;font-family:sans-serif;">&nbsp;</td>
+                    </tr>
+                  </table>
+                </td>
+                <td width="25" style="padding:0;margin:0;">&nbsp;</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td height="12" style="padding:0;margin:0;line-height:12px;margin-top:1px solid #f0f0f0;">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="26" style="padding:0;margin:0;line-height:26px;">
+            <table style="border-collapse:collapse;border-spacing:0;">
+              <tr>
+                <td width="28" style="padding:0;margin:0;">&nbsp;</td>
+                <td height="16" width="550" style="padding:0;margin:0;line-height:16px;font-size:12px;font-family:sans-serif;color:#000000;letter-spacing:0.8px;">Dados Comerciais</td>
+                <td width="25" style="padding:0;margin:0;">&nbsp;</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:0;margin:0;">
+            <table style="border-collapse:collapse;border-spacing:0;">
+              <tr>
+                <td width="27" style="padding:0;margin:0;">&nbsp;</td>
+                <td width="550" style="padding:0;margin:0;">
+                  <table>
+                    <tr>
+                      <td width="140" height="18" style="padding:0;margin:0;color:#7b7776;font-size:10px;font-family:sans-serif;line-height:18px;">Associado à uma empresa?</td>
+                      <td width="140" style="padding:0;margin:0;color:#000000;font-size:10px;font-family:sans-serif;"><%= @individual["job_position"].to_s.empty? ? "Não" : "Sim" %></td>
+                    </tr>
+                    <% if @organization %>
+                    <tr>
+                      <td width="108" height="18" style="padding:0;margin:0;color:#7b7776;font-size:10px;font-family:sans-serif;line-height:18px;">Nome da empresa</td>
+                      <td width="140" style="padding:0;margin:0;color:#000000;font-size:10px;font-family:sans-serif;"><%= @organization["organization"]["name"] %></td>
+                      <td width="108" height="18" style="padding:0;margin:0;color:#7b7776;font-size:10px;font-family:sans-serif;line-height:18px;">&nbsp;</td>
+                      <td width="140" style="padding:0;margin:0;color:#000000;font-size:10px;font-family:sans-serif;">&nbsp;</td>
+                    </tr>
+                    <% if @individual["job_position_name"] %>
+                    <tr>
+                      <td width="108" height="18" style="padding:0;margin:0;color:#7b7776;font-size:10px;font-family:sans-serif;line-height:18px;">Cargo</td>
+                      <td width="140" style="padding:0;margin:0;color:#000000;font-size:10px;font-family:sans-serif;"><%= @individual["job_position_name"] %></td>
+                      <td width="108" height="18" style="padding:0;margin:0;color:#7b7776;font-size:10px;font-family:sans-serif;line-height:18px;">&nbsp;</td>
+                      <td width="140" style="padding:0;margin:0;color:#000000;font-size:10px;font-family:sans-serif;">&nbsp;</td>
+                    </tr>
+                    <% end %>
+                    <% end %>
+                  </table>
+                </td>
+                <td width="25" style="padding:0;margin:0;">&nbsp;</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td height="12" style="padding:0;margin:0;line-height:12px;margin-top:1px solid #f0f0f0;">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="26" style="padding:0;margin:0;line-height:26px;">
+            <table style="border-collapse:collapse;border-spacing:0;">
+              <tr>
+                <td width="28" style="padding:0;margin:0;">&nbsp;</td>
+                <td height="16" width="550" style="padding:0;margin:0;line-height:16px;font-size:12px;font-family:sans-serif;color:#000000;letter-spacing:0.8px;">Endereço Comercial</td>
+                <td width="25" style="padding:0;margin:0;">&nbsp;</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:0;margin:0;">
+            <table style="border-collapse:collapse;border-spacing:0;">
+              <tr>
+                <td width="27" style="padding:0;margin:0;">&nbsp;</td>
+                <td width="550" style="padding:0;margin:0;">
+                  <table>
+                    <tr>
+                      <td width="108" height="18" style="padding:0;margin:0;color:#7b7776;font-size:10px;font-family:sans-serif;line-height:18px;">CEP</td>
+                      <td width="140" style="padding:0;margin:0;color:#000000;font-size:10px;font-family:sans-serif;"><%= @individual["individual_localizations"]["business"]["code"] %></td>
+                      <td width="108" height="18" style="padding:0;margin:0;color:#7b7776;font-size:10px;font-family:sans-serif;line-height:18px;">&nbsp;</td>
+                      <td width="140" style="padding:0;margin:0;color:#000000;font-size:10px;font-family:sans-serif;">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td width="108" height="18" style="padding:0;margin:0;color:#7b7776;font-size:10px;font-family:sans-serif;line-height:18px;">Endereço</td>
+                      <td width="140" style="padding:0;margin:0;color:#000000;font-size:10px;font-family:sans-serif;"><%= @individual["individual_localizations"]["business"]["address"] %></td>
+                      <td width="108" height="18" style="padding:0;margin:0;color:#7b7776;font-size:10px;font-family:sans-serif;line-height:18px;">&nbsp;</td>
+                      <td width="140" style="padding:0;margin:0;color:#000000;font-size:10px;font-family:sans-serif;">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td width="108" height="18" style="padding:0;margin:0;color:#7b7776;font-size:10px;font-family:sans-serif;line-height:18px;">Estado</td>
+                      <td width="140" style="padding:0;margin:0;color:#000000;font-size:10px;font-family:sans-serif;"><%= @individual["individual_localizations"]["business"]["state"] %></td>
+                      <td width="108" height="18" style="padding:0;margin:0;color:#7b7776;font-size:10px;font-family:sans-serif;line-height:18px;">Cidade</td>
+                      <td width="140" style="padding:0;margin:0;color:#000000;font-size:10px;font-family:sans-serif;"><%= @individual["individual_localizations"]["business"]["city"] %></td>
+                    </tr>
+                    <tr>
+                      <td width="108" height="18" style="padding:0;margin:0;color:#7b7776;font-size:10px;font-family:sans-serif;line-height:18px;">País</td>
+                      <td width="140" style="padding:0;margin:0;color:#000000;font-size:10px;font-family:sans-serif;"><%= @individual["individual_localizations"]["business"]["country_name"] %></td>
+                      <td width="108" height="18" style="padding:0;margin:0;color:#7b7776;font-size:10px;font-family:sans-serif;line-height:18px;">&nbsp;</td>
+                      <td width="140" style="padding:0;margin:0;color:#000000;font-size:10px;font-family:sans-serif;">&nbsp;</td>
+                    </tr>
+                  </table>
+                </td>
+                <td width="25" style="padding:0;margin:0;">&nbsp;</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td height="12" style="padding:0;margin:0;line-height:12px;margin-top:1px solid #f0f0f0;">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="26" style="padding:0;margin:0;line-height:26px;">
+            <table style="border-collapse:collapse;border-spacing:0;">
+              <tr>
+                <td width="28" style="padding:0;margin:0;">&nbsp;</td>
+                <td height="16" width="550" style="padding:0;margin:0;line-height:16px;font-size:12px;font-family:sans-serif;color:#000000;letter-spacing:0.8px;">Notificações</td>
+                <td width="25" style="padding:0;margin:0;">&nbsp;</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:0;margin:0;">
+            <table style="border-collapse:collapse;border-spacing:0;">
+              <tr>
+                <td width="27" style="padding:0;margin:0;">&nbsp;</td>
+                <td width="550" style="padding:0;margin:0;">
+                  <table>
+                    <tr>
+                      <td height="18" style="padding:0;margin:0;color:#7b7776;font-size:10px;font-family:sans-serif;line-height:18px;">Deseja receber notícias e novidades sobre os seguintes eventos</td>
+                    </tr>
+                    <tr>
+                      <td height="20" style="padding:0;margin:0;color:#000000;font-size:10px;font-family:sans-serif;line-height:20px;"><%= @individual["container_names"] %></td>
+                    </tr>
+                  </table>
+                </td>
+                <td width="25" style="padding:0;margin:0;">&nbsp;</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td height="10" style="padding:0;margin:0;line-height:10px;">&nbsp;</td>
+        </tr>
+
+        <% if @subscriber["subscriber"]["validated"] == false %>
+        <tr>
+          <td style="background-color:#e5e5e5;">
+            <table style="border-collapse:collapse;border-spacing: 0;">
+              <tr>
+                <td width="25" style="padding:0;margin:0;">&nbsp;</td>
+                <td height="30" width="550" style="padding:0;margin:0;line-height:30px;font-size:10px;font-weight:bold;font-family:sans-serif;"><a href="<%= APP_CONFIG["website_base_url"] %>/cadastro/confirmar?id=<%= @subscriber["subscriber"]["hash_id"] %>" style="color:#ed0678;text-decoration:none;">Confirmar o meu cadastro.</a></td>
+                <td width="25" style="padding:0;margin:0;">&nbsp;</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <% end %>
+
+        <tr>
+          <td height="20" style="padding:0;margin:0;">&nbsp;</td>
+        </tr>
+
+        <tr>
+          <td style="padding:0;margin:0;line-height:13px;">
+            <table style="border-collapse:collapse;border-spacing: 0;">
+              <tr>
+                <td width="29" style="padding:0;margin:0;">&nbsp;</td>
+                <td width="546" style="padding:0;margin:0;font-size:10px;font-family:sans-serif;line-height:14px;"><% if @subscriber["subscriber"]["validated"] == false %>Não esqueça de clicar no link acima para confirmar o seu cadastro conosco. <% end %>Se você notar alguma inconsistência nos seus dados e quiser corrigir o seu cadastro, <a href="<%= APP_CONFIG["website_base_url"] %>/cadastro?id=<%= @subscriber["subscriber"]["hash_id"] %>" style="color:#ed0678;text-decoration:none;"><b>clique aqui</b></a> para corrigir.</td>
+                <td width="25" style="padding:0;margin:0;">&nbsp;</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td height="34" style="padding:0;margin:0;">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="10" style="padding:0;margin:0;line-height:10px;">
+            <table style="border-collapse:collapse;border-spacing: 0;">
+              <tr>
+                <td width="312" style="padding:0;margin:0;font-size:10px;">+</td>
+                <td width="280" style="padding:0;margin:0;font-size:10px;">+</td>
+                <td style="padding:0;margin:0;font-size:10px;">+</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td height="13" style="padding:0;margin:0;line-height:13px;border-bottom:1px dashed #a5a5a5;">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="5" style="padding:0;margin:0;line-height:5px;">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="48" style="padding:0;margin:0;">
+            <table style="border-collapse:collapse;border-spacing: 0;">
+              <tr>
+                <td height="48" width="122" style="padding:0;margin:0;">
+                  <!--<img src="<%= APP_CONFIG["application_base_url"] %>/images/notifier/email-footer-left.png" width="120" height="48"/>-->
+                </td>
+                <td height="48" width="395" style="padding:0;margin:0;">
+                  <table style="border-collapse:collapse;border-spacing: 0;">
+                    <tr>
+                      <td width="390" height="10" style="padding:0;margin:0;line-height:10px;">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td width="390" height="25" style="padding:0;margin:0;line-height:15px;color:#a5a5a5;font-size:10px;font-family:sans-serif;letter-spacing:-0.2px;">
+                        Centro Cultural da Espanha em São Paulo | Av. Angélica, 1091<br/>
+                        Higienópolis | São Paulo, SP | tel +55 11 3822.2627 | <a href="mailto:contato@ccebrasil.org.br" style="color:#a5a5a5;text-decoration:none;"><b>contato@ccebrasil.org.br</b></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="388" height="10" style="padding:0;margin:0;line-height:10px;">&nbsp;</td>
+                    </tr>
+                  </table>
+                </td>
+                <td height="48" width="35" style="padding:0;margin:0;"></td>
+                <td height="48" width="50" style="padding:0;margin:0;">
+                  <img src="<%= APP_CONFIG["application_base_url"] %>/images/notifier/email-footer-right.png" width="50" height="48"/>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td width="50" style="padding:0;margin:0;">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

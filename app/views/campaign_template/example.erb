@@ -1,0 +1,9 @@
+<h1>Template Example</h1>
+
+<p>Campaign Title: <%= @data["content_title"] %></p>
+<p>Campaign Subtitle: <%= @data["content_subtitle"] %></p>
+<p>Campaign Body: <%= @data["content_body"] %></p>
+<p>Campaign Image: <img src="<%= APP_CONFIG["application_base_url"] %><%= ApplicationHelper.public_data_url(:campaign_image, @data["hash_id"]) %>"/></p>
+
+<p>Individual Name: {{individual.name_first}} {{individual.name_last}}</p>
+<p>Individual Email: {{subscriber.email_local}}@{{subscriber.email_domain}}</p>

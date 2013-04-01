@@ -1,0 +1,122 @@
+<% results = Website.get(:destaques_noticias) || {} %>
+<% articles = results["articles"] || [] %>
+<% results = Website.get(:destaques_programacao) || {} %>
+<% programs = (results["programs"] || []).slice(0,4) %>
+<% results = Website.get(:destaque_capa) || {} %>
+<% highlight = (results["highlight"] || {}) %>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Centro Cultural da Espanha_SP</title>
+</head>
+<body>
+<table style="border-collapse:collapse;border-spacing:0;width:900px;">
+  <tr>
+    <td><img src="<%= APP_CONFIG["website_base_url"] %>/images/mailing_header.png" width="900" height="180"/></td>
+  </tr>
+  <tr>
+    <td><img src="<%= APP_CONFIG["website_base_url"] %>/images/atualizacoes_da_semana/atualizacoes_da_semana.jpg" width="800" height="60" style="margin-left:50px;"/></td>
+  </tr>
+  <tr>
+    <td height="20" style="height:20px;font-size:1px;">&nbsp;</td>
+  </tr>
+
+  <tr>
+    <td>
+      <table width="800" style="width:800px;border-collapse:collapse;border-spacing:0;margin-left:50px;background-color:#f9eef4;">
+        <tr>
+          <td width="500" valign="top" style="width:500px;vertical-align:top;padding:23px;color:black;text-align:justify;">
+            <img src="<%= APP_CONFIG["website_base_url"] %>/images/atualizacoes_da_semana/em_destaque.jpg"/>
+            &nbsp;<br/>
+            &nbsp;<br/>
+            <span style="font:11px arial,verdana,tahoma,sans-serif;"><strong><%= highlight["title"] %></strong><br/><p><%= highlight["subtitle"] %></p></span>
+          </td>
+          <td style="text-align:right;"><a href="<%= highlight["url"] %>"><img src="<%= APP_CONFIG["website_base_url"] %>/system/highlight_images/<%= highlight["id"] %>/thumb/<%= highlight["highlight_image_file_name"] %>" width="278" border="0"/></a></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td><img src="<%= APP_CONFIG["website_base_url"] %>/images/atualizacoes_da_semana/destaques_da_programacao.jpg" width="286" height="32" style="margin-top:30px;margin-left:80px;"/></td>
+  </tr>
+
+  <tr>
+    <td style="padding-left:50px;padding-right:50px;">
+      <table width="800" style="width:800px;border-collapse:collapse;border-spacing:0;">
+        <tr>
+          <% programs.each do |j| %>
+          <td valign="top">
+            <table>
+              <tr>
+                <td><a href="<%= APP_CONFIG["website_base_url"] %>/programacao/<%= j["year"] %>/<%= j["month"] %>/<%= j["day"] %>/<%= j["permalink"] %>"><img src="<%= APP_CONFIG["website_base_url"] %>/system/program_images/<%= j["id"] %>/thumb/<%= j["program_image_file_name"] %>" width="193" border="0"/></a></td>
+              </tr>
+              <tr>
+                <td style="padding-left:26px;padding-top:8px;color:gray;font:11px arial,verdana,tahoma,sans-serif;font-weight:bold;"><span style="color:#00a7f2;"><%= j["when"] %></span>&nbsp;|&nbsp;<span style="color:#f40082;"><%= j["category"] %></span></td>
+              </tr>
+              <tr>
+                <td style="padding-left:26px;font:11px arial,verdana,tahoma,sans-serif;">
+                  <a href="<%= APP_CONFIG["website_base_url"] %>/programacao/<%= j["year"] %>/<%= j["month"] %>/<%= j["day"] %>/<%= j["permalink"] %>" style="text-decoration:none;color:black;">
+                  <span style="font-weight:bold;"><%= j["title"] %></span><br/>
+                  <span><%= j["subtitle"] %></span>
+                  </a>
+                </td>
+              </tr>
+            </table>
+          </td>
+          <% end %>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td height="25" style="height:25px;font-size:1px;">&nbsp;</td>
+  </tr>
+  <tr>
+    <td><img src="<%= APP_CONFIG["website_base_url"] %>/images/atualizacoes_da_semana/noticias.jpg" width="800" height="40" style="margin-left:50px;"/></td>
+  </tr>
+
+  <tr>
+    <td style="padding-left:50px;">
+      <table style="background-color:#f2f2f2;border-collapse:collapse;border-spacing:0;">
+        <% articles.each do |j| %>
+        <tr>
+          <td height="20" style="height:20px;font-size:1px;">&nbsp;</td>
+        </tr>
+        <tr>
+          <td>
+            <table width="800" style="border-collapse:collapse;border-spacing:0;width:800px;">
+              <tr>
+                <td valign="top" style="vertical-align:top;padding-left:10px;padding-top:3px;color:#ed0678;font:16px arial,verdana,tahoma,sans-serif;font-weight:bold;">+</td>
+                <td width="750" style="width:750px;padding-right:20px;">
+                  <a href="<%= "#{APP_CONFIG["website_base_url"]}/noticias/#{j["permalink"]}" %>" style="text-decoration:none" target="_blank">
+                  <span style="color:#00b9ec;font:13px arial,verdana,tahoma,sans-serif;font-weight:bold;"><%= j["title"] %></span><br/>
+                  <span style="color:black;font:11px arial,verdana,tahoma,sans-serif;"><%= j["subtitle"] %></span>
+                  </a>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <% end %>
+        <tr><td>&nbsp;</td></tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+  </tr>
+    <td valign="top" height="10" style="color:#ed0678;font:11px arial,verdana,tahoma,sans-serif;vertical-align:top;padding-top:5px;padding-right:100px;text-align:right;height:10px;">
+      <a href="<%= APP_CONFIG["website_base_url"] %>/cadastro/?id={{subscriber.hash_id}}" style="text-decoration:none;color:#ed0678;">clique aqui para atualizar seu cadastro</a>
+      <br/>
+      &nbsp;<br/>
+      <a href="<%= APP_CONFIG["website_base_url"] %>/cadastro/remover?id={{subscriber.hash_id}}" style="text-decoration:none;color:#ed0678;">clique aqui para não receber mais notificações</a>
+    </td>
+  <tr>
+    <td><img src="<%= APP_CONFIG["website_base_url"] %>/images/mailing_footer.png" width="900" height="110"/></td>
+  </tr>
+</table>
+</body>
+</html>

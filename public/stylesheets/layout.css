@@ -1,0 +1,129 @@
+/* menu */
+
+table.section-button td.x-btn-mc {
+  text-align: left;
+  height: 32px;
+}
+table.section-button button {
+  font-weight: bold;
+  margin-left: 4px;
+}
+
+/* header */
+
+#viewport-header-panel div.x-panel-body {
+  line-height: 60px;
+}
+
+#viewport-title-panel div.x-panel-body {
+  padding-left: 8px;
+  background-color: #ED0677;
+}
+#viewport-title-panel div.x-panel-body span {
+  font-weight: bold;
+  color: white;
+  font-size: 24px;
+  letter-spacing: 3px;
+}
+
+#viewport-username-panel div.x-panel-body {
+  text-align: right;
+  background-color: #ED0677;
+  padding-right: 16px;
+}
+#viewport-username-panel div.x-panel-body span {
+  font-weight: bold;
+  color: white;
+}
+
+#viewport-logout-panel div.x-panel-body {
+  background-color: #ED0677;
+  padding-top: 19px;
+  padding-right: 32px;
+}
+
+#viewport-search-panel div.x-panel-body {
+  background-color: #ED0677;
+  padding-right: 16px;
+}
+
+/* preview */
+
+div.preview-panel label {
+  font-weight: bold;
+}
+
+div.preview-title div.x-panel-body span {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* form */
+
+div.content-form-panel form.x-panel-body {
+  padding: 16px;
+  background-color: whitesmoke;
+}
+div.content-form-item label {
+  height: 16px;
+  background-color: #E4E4E4;
+}
+div.content-form-radio {
+  margin-right: 16px;
+  margin-left: 2px;
+}
+div.content-form-radio label {
+  background: none;
+}
+div.content-form-checkbox {
+  margin-left: 2px;
+}
+
+/* extjs customizations */
+
+div.x-panel-header {
+  background-image: url("/images/custom-top-bottom.gif");
+  background-position: center;
+  color: white;
+}
+span.x-panel-header-text {
+  padding-left: 4px;
+}
+div.x-grid3-cell-inner {
+  font-size: 12px;
+}
+
+*, 
+button.x-btn-text, 
+div.xtb-text,
+input.x-form-text,
+input.x-form-field,
+input.x-form-empty-field,
+div.x-small-editor input.x-form-field {
+  font-family: helvetica, tahoma, verdana, sans-serif;
+  font-size: 14px;
+}
+
+/* scroll when fieldset has fixed height */
+div.x-fieldset-body { overflow: auto; }
+
+/* multivalorated strings */
+
+div.x-form-display-field div.multivalorated { }
+div.x-grid3-cell-inner div.multivalorated { display: inline; }
+
+/* status */
+
+div.x-status-text {
+  font-family: monospace;
+  color: #333;
+  margin-left: 5px;
+}
+
+/* checkbox overflow fixes */
+
+div.x-form-check-wrap label.x-form-cb-label,
+div.x-form-check-wrap {
+  white-space: nowrap;
+  overflow: hidden;
+}

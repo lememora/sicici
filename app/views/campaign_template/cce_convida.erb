@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Centro Cultural da Espanha_SP</title>
+</head>
+<body>
+<table style="border-collapse:collapse;border-spacing:0;width:900px;">
+  <tr>
+    <td><img src="<%= APP_CONFIG["website_base_url"] %>/images/mailing_header.png" width="900" height="180"/></td>
+  </tr>
+  <tr>
+    <td><img src="<%= APP_CONFIG["website_base_url"] %>/images/cce_convida/cce_convida.jpg" width="800" height="62" style="margin-left:50px;"/></td>
+  </tr>
+  <tr>
+    <td height="10" style="height:10px;font-size:1px;">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>
+      <table width="800" style="width:800px;border-collapse:collapse;border-spacing:0;margin-left:50px;">
+        <tr>
+          <td valign="top" width="400" style="width:400px;vertical-align:top;">
+            <table width="400" style="width:400px;border-collapse:collapse;border-spacing:0;margin:0px;">
+              <tr>
+                <!--<td height="100" style="background-color:#ed0678;padding-top:18px;padding-bottom:18px;padding-left:33px;padding-right:33px;height:100px;">-->
+                <td height="100" style="background-color:#ed0678;height:100px;">
+                  <table style="margin-top:18px;margin-bottom:18px;margin-left:33px;margin-right:33px;"><tr><td>
+                <span style="font:13px arial,verdana,tahoma,sans-serif;color:black;font-weight:bold;"><%= @data["content_title"] %></span><br/>
+                &nbsp;<br/>
+                <span style="font:13px arial,verdana,tahoma,sans-serif;color:white;font-weight:bold;"><%= @data["content_subtitle"].split(/\n/)[0] %></span><br/>
+                <span style="font:13px arial,verdana,tahoma,sans-serif;color:white;"><%= @data["content_subtitle"].split(/\n/)[1] %></span>
+                  </td></tr></table>
+                </td>
+              </tr>
+              <tr>
+                <!--<td valign="top" height="280" style="background-color:#01aef2;padding:23px;padding-left:33px;padding-right:33px;text-align:justify;height:280px;vertical-align:top;">-->
+                <td valign="top" height="280" style="background-color:#01aef2;text-align:justify;height:280px;vertical-align:top;">
+                  <table style="margin:23px;margin-left:33px;margin-right:33px;"><tr><td>
+                <span style="font:13px arial,verdana,tahoma,sans-serif;font-weight:bold;color:white;">Olá {{individual.name_first}}</span>
+                &nbsp;<br/>
+                &nbsp;<br/>
+                <span style="font:11px arial,verdana,tahoma,sans-serif;"><%= @data["content_body"] %></span>
+                  </td></tr></table>
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td><img src="<%= APP_CONFIG["application_base_url"] %><%= ApplicationHelper.public_data_url(:campaign_image, @data["hash_id"]) %>" width="400"/></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td height="10" style="height:10px;font-size:1px;">&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top" height="10" style="color:#ed0678;font:11px arial,verdana,tahoma,sans-serif;vertical-align:top;padding-top:5px;padding-right:100px;text-align:right;height:10px;">
+      <a href="<%= APP_CONFIG["website_base_url"] %>/cadastro/?id={{subscriber.hash_id}}" style="text-decoration:none;color:#ed0678;">clique aqui para atualizar seu cadastro</a>
+      <br/>
+      &nbsp;<br/>
+      <a href="<%= APP_CONFIG["website_base_url"] %>/cadastro/remover?id={{subscriber.hash_id}}" style="text-decoration:none;color:#ed0678;">clique aqui para não receber mais notificações</a>
+    </td>
+  </tr>
+  <tr>
+    <td><img src="<%= APP_CONFIG["website_base_url"] %>/images/mailing_footer.png" width="900" height="110"/></td>
+  </tr>
+</table>
+</body>
+</html>

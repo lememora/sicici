@@ -1,0 +1,130 @@
+= SICICI
+
+SICICI is a web application suite for contact management, event subscriptions,
+mailing list and document printing, written in Ruby on Rails framework and
+uses MySQL as database.
+
+
+== Requirements
+
+I recommend install this application with following environment:
+
+* Linux 2.6 (Debian "lenny")
+* Apache 2.2
+* Phusion Passenger 2.2
+* Ruby 1.8
+* Rails 2.3.8
+* Acts As List 0.1.2
+* MySQL Server 5.1
+
+See server-setup.pdf for more details
+
+ExtJS is not included in this application by default. To download and install
+it, follow these steps:
+
+cd public/javascripts
+wget http://extjs.cachefly.net/ext-3.2.1.zip
+unzip ext-3.2.1.zip
+rm ext-3.2.1.zip
+
+
+Your system needs HTMLDOC installed. To install it, follow these steps:
+
+sudo apt-get install htmldoc
+
+or 
+
+Download it and compile from: http://www.htmldoc.org
+
+
+== Installation
+
+1. Configure Apache
+
+   RailsEnv development
+   <VirtualHost *:80>
+     ServerName www.mydomain.com
+     DocumentRoot /var/www/sicici/public
+     <Directory /var/www/sicici/public>
+       AllowOverride all
+       Options -MultiViews
+     </Directory>
+     ServerSignature off
+   </VirtualHost>
+
+2. Configure MySQL
+
+   CREATE USER 'sicici'@'localhost' IDENTIFIED BY 'sicici';
+   GRANT ALL PRIVILEGES ON `sicici_development`.* TO 'sicici'@'localhost';
+   GRANT ALL PRIVILEGES ON `sicici_test`.* TO 'sicici'@'localhost';
+   CREATE DATABASE `sicici_development`;
+   CREATE DATABASE `sicici_test`;
+   FLUSH PRIVILEGES;
+
+3. Configure config/application.yml
+
+4. Configure config/database.yml
+
+5. Install packages
+
+   $ apt-get install htmldoc
+
+6. Install gems
+
+   $ rake gems:install
+   $ rake gems:unpack:dependencies (optional)
+
+7. Setup application
+
+   $ rake db:drop
+   $ rake db:create
+   $ rake db:migrate
+   $ rake db:seed
+
+8. Generate sample (optional)
+
+   $ rake sample:contact
+   $ rake sample:campaign
+
+9. Create public data directory and set permissions
+
+   $ mkdir public/data
+   $ chmod 777 public/data
+   $ chown -R www-data.www-data public/data
+
+10. Remove old files on public data
+
+   $ find public/data -type f | grep -v .svn | xargs rm
+
+
+== Production
+
+1. Configure Apache 
+   
+   RailsEnv production
+
+2. Configure MySQL
+
+   GRANT ALL PRIVILEGES ON `sicici_production`.* TO 'sicici'@'localhost';
+   CREATE DATABASE `sicici_production`;
+   FLUSH PRIVILEGES;
+
+3. Setup application
+
+   $ rake db:migrate RAILS_ENV=production
+   $ rake db:seed RAILS_ENV=production
+
+4. Add mailer to /etc/rc.local
+
+    mailer_dir=/var/www/3si.devel.ccebrasil.org.br
+    $mailer_dir/mailer.sh start > $mailer_dir/mailer.out 2> $mailer_dir/mailer.err < /dev/null &
+
+
+== Test
+
+$ rake db:test:purge
+$ rake db:test:clone_structure
+$ rake db:seed RAILS_ENV=test
+$ cd test
+$ ruby unit/individual_test.rb
+$ ruby functional/contact_controller_test.rb

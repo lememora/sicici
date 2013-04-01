@@ -1,0 +1,75 @@
+# SICICI application configuration
+development:
+  application_base_url: "http://sicici"
+  website_base_url: "http://ccebrasil"
+  website_service_path: "/service"
+  website_event_path: "/inscricoes"
+
+  smtp_address: "localhost"
+  smtp_port: 25
+
+  mail_from_name: "Centro Cultural da Espanha_SP"
+  mail_from_username: "divulgacao"
+  mail_from_domain: "ww2.ccebrasil.org.br"
+
+  pop3_address: "localhost"
+  pop3_port: 110
+  pop3_username: "divulgacao"
+  pop3_password: "divulgacao"
+
+  campaign_dispatch_rate: 25
+  campaign_schedule_forwardness: 43200
+
+  sections: [ "contact", "organization", "container", "eventz", "campaign", "campaign_job", "printable", "printable_job", "user", "history", "personal_activity", "business_activity" ]
+
+  time_zone: "Brasilia"
+
+test:
+  application_base_url: "http://sicici"
+  website_base_url: "http://ccebrasil"
+  website_service_path: "/service"
+  website_event_path: "/inscricoes"
+
+  smtp_address: "localhost"
+  smtp_port: 25
+
+  mail_from_name: "Centro Cultural da Espanha_SP"
+  mail_from_username: "divulgacao"
+  mail_from_domain: "localhost"
+
+  pop3_address: "localhost"
+  pop3_port: 110
+  pop3_username: "divulgacao"
+  pop3_password: "divulgacao"
+
+  campaign_dispatch_rate: 25
+  campaign_schedule_forwardness: 43200
+
+  sections: [ "contact", "organization", "container", "eventz", "campaign", "campaign_job", "printable", "printable_job", "user", "history" ]
+
+  time_zone: "Brasilia"
+
+production:
+  application_base_url: "http://3si.ccebrasil.org.br"
+  website_base_url: "http://ww2.ccebrasil.org.br"
+  website_service_path: "/service"
+  website_event_path: "/inscricoes"
+
+  smtp_address: "localhost"
+  smtp_port: 25
+
+  mail_from_name: "Centro Cultural da Espanha_SP"
+  mail_from_username: "divulgacao"
+  mail_from_domain: "ww2.ccebrasil.org.br"
+
+  pop3_address: "localhost"
+  pop3_port: 110
+  pop3_username: "divulgacao"
+  pop3_password: "divulgacao"
+
+  campaign_dispatch_rate: 25
+  campaign_schedule_forwardness: 43200
+
+  sections: [ "contact", "organization", "container", "eventz", "campaign", "campaign_job", "printable", "printable_job", "user", "history" ]
+
+  time_zone: "Brasilia"

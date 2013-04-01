@@ -1,0 +1,221 @@
+= Server Setup for SICICI
+
+== System
+
+apt-get update
+
+apt-get install unzip
+
+
+== Ruby
+
+apt-get install ruby
+apt-get install irb
+apt-get install rdoc
+
+cd /usr/local/src
+wget http://production.cf.rubygems.org/rubygems/rubygems-1.3.6.tgz
+tar zxvf rubygems-1.3.6.tgz
+cd rubygems-1.3.6
+ruby setup.rb
+ln -s /usr/bin/gem1.8 /usr/local/bin/gem
+
+
+== Ruby on Rails
+
+gem install rails
+
+
+== MySQL
+
+apt-get install mysql-server
+
+apt-get install libmysql-ruby
+apt-get install libmysqlclient15-dev
+apt-get install ruby-dev
+apt-get install build-essential
+
+gem install mysql
+gem install rack --version=1.0.0
+
+
+== Passenger
+
+gem install passenger
+
+apt-get install libopenssl-ruby
+apt-get install apache2
+apt-get install apache2-prefork-dev
+
+passenger-install-apache2-module
+
+cd /etc/apache2/mods-available
+echo "LoadModule passenger_module $(passenger-config --root)/ext/apache2/mod_passenger.so" > passenger.load
+echo "PassengerRoot $(passenger-config --root)" > passenger.conf
+echo "PassengerRuby $(whereis ruby1.8 | sed s/.*:\ //g)" >> passenger.conf
+a2enmod passenger
+
+cd ../sites-available
+
+echo "<VirtualHost *:80>
+  ServerName vps1.le.ro
+  DocumentRoot /var/www/vps1.le.ro/public
+  <Directory /var/www/vps1.le.ro/public>
+    AllowOverride all
+    Options -MultiViews
+  </Directory>
+</VirtualHost>" > vps1.le.ro
+
+cd ../sites-enabled
+rm 000-default
+ln -s ../sites-available/vps1.le.ro
+
+/etc/init.d/apache2 restart
+
+
+== Subversion
+
+apt-get install subversion
+apt-get install subversion-tools
+
+apt-get install libapache2-svn
+
+mkdir /var/svn
+chown www-data /var/svn
+su www-data -c "svnadmin create /var/svn/myrep"
+
+cd /etc/apache2/sites-available
+head -n $(expr $(wc -l vps1.le.ro | sed s/\ .*//) - 1) vps1.le.ro > vps1.le.ro.tmp
+echo "  <Location /svn/myrep>
+    DAV svn
+    SVNPath /var/svn/myrep
+    AuthType Basic
+    AuthName \"My Subversion Repository\"
+    AuthUserFile /var/svn/dav_svn-myrep.passwd
+    Require valid-user
+  </Location>
+</VirtualHost>" >> vps1.le.ro.tmp
+mv vps1.le.ro.tmp vps1.le.ro
+
+su www-data -c "htpasswd -c -m /var/svn/dav_svn-myrep.passwd myuser"
+su www-data -c "htpasswd -m /var/svn/dav_svn-myrep.passwd otheruser"
+
+/etc/init.d/apache restart
+
+svn co http://vps1.le.ro/svn/myrep myrep
+
+
+== Postfix
+
+apt-get remove exim4
+apt-get install postfix
+
+vim /etc/postfix/main.cf
+  myhostname = email.ccebrasil.org.br
+  # mydestination = # forward bounces to mx 
+  inet_interfaces = localhost
+  smtp_bind_address = 98.158.189.140 # email.ccebrasil.org.br
+  local_recipient_maps = 
+  mynetworks_style = host
+
+
+== Google Apps account / MX
+
+https://www.google.com/a/email.ccebrasil.org.br
+Username: divulgacao@email.ccebrasil.org.br
+Password: vgXf444abdAuy
+
+
+== SPF/SenderID/DKIM
+
+(add PTR to your DNS for reverse lookup)
+  73.189.158.98.in-addr.arpa. IN PTR email.ccebrasil.org.br.
+
+(add SPF to your DNS)
+  v=spf1 ip4:98.158.189.73 include:_spf.google.com ~all
+
+(add SenderID)
+  http://www.microsoft.com/senderid
+
+apt-get install dkim-filter
+
+mkdir /etc/dkim && cd /etc/dkim
+
+dkim-genkey -b 1024 -d email.ccebrasil.org.br -s emlccebr
+
+chown dkim-filter emlccebr.private
+chmod 400 emlccebr.private
+chmod 400 emlccebr.txt
+
+(add emlccebr public key to your DNS)
+  emlccebr._domainkey.email.ccebrasil.org.br IN TXT "v=DKIM1; g=*; k=rsa; p=..."
+
+(test domainkey with dig)
+dig emlccebr._domainkey.email.ccebrasil.org.br txt
+
+usermod -a -G dkim-filter postfix
+
+/etc/dkim-filter.conf
+  UMask 002
+  Domain email.ccebrasil.org.br
+  KeyFile /etc/dkim/emlccebr.private
+  Selector emlccebr
+  AutoRestart no
+  Background yes
+  Canonicalization simple
+  DNSTimeout 5
+  Mode sv
+  SignatureAlgorithm rsa-sha256
+  SubDomains no
+  X-Header no
+  Statistics /var/run/dkim-filter/dkim-stats
+
+/etc/default/dkim-filter
+  SOCKET="inet:12345@localhost"
+
+/etc/postfix/main.cf
+  milter_default_action = accept
+  milter_protocol = 2
+  smtpd_milters = inet:localhost:12345
+  non_smtpd_milters = inet:localhost:12345
+  bounce_queue_lifetime = 0
+
+/etc/init.d/dkim-filter start
+/etc/init.d/postfix restart
+
+(test dkim)
+http://www.sendmail.org/dkim/checker
+autorespond+dkim@dk.elandsys.com 
+http://www.mailradar.com/domainkeys/
+
+
+== Dovecot
+
+apt-get install dovecot-pop3d
+
+/etc/init.d/dovecot stop
+
+/etc/dovecot/dovecot.conf
+  protocols = pop3 # comment out pop3s
+  listen = localhost
+
+/etc/init.d/dovecot start
+
+
+useradd divulgacao
+usermod -s /bin/false divulgacao
+passwd divulgacao # use a good password
+mkdir /home/divulgacao
+chown -R divulgacao.divulgacao /home/divulgacao
+
+
+== Crontab
+
+# apache/mysql restart (lunch)
+35 14 * * * /etc/init.d/apache2 restart
+40 14 * * * /etc/init.d/mysql restart
+# apache/mysql restart (night)
+5 6 * * * /etc/init.d/apache2 restart
+10 6 * * * /etc/init.d/mysql restart
+# rsync backup (night)
+15 6 * * * rsync -avz --exclude-from '/root/rsync-exclude.txt' -e ssh / 7595@rsync1.cloudkeeper.net:vps1.le.ro

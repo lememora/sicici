@@ -1,0 +1,84 @@
+<% results = Website.get(:programacao_do_mes) || {} %>
+<% program_categories = results["program_categories"] %>
+<% program_download = results["program_download"] %>
+<% programs = results["programs"] %>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Centro Cultural da Espanha_SP</title>
+</head>
+<body>
+<table style="border-collapse:collapse;border-spacing:0;width:900px;">
+  <tr>
+    <td><img src="<%= APP_CONFIG["website_base_url"] %>/images/mailing_header.png" width="900" height="180"/></td>
+  </tr>
+  <tr>
+    <td height="180" style="height:100px;">
+      <table style="border-collapse:collapse;border-spacing:0;width:800px;margin-left:50px;border-top:5px solid #00adef;background-color:#00adef;">
+        <tr>
+          <td style="padding:0px;padding-left:30px;color:white;"><img src="<%= APP_CONFIG["website_base_url"] %>/images/programacao_do_mes/<%= %w{janeiro fevereiro marco abril maio junho julho agosto setembro outubro novembro dezembro}[program_download["month"] - 1] %>.png"/>&nbsp;&nbsp;<img src="<%= APP_CONFIG["website_base_url"] %>/images/programacao_do_mes/<%= program_download["year"] %>.png"/>&nbsp;&nbsp;<img src="<%= APP_CONFIG["website_base_url"] %>/images/programacao_do_mes/programacao_do_mes.png"/></td>
+          <td><img src="<%= APP_CONFIG["website_base_url"] %>/images/programacao_do_mes/plus_top.png" width="37" height="60"/></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td height="10" style="height:10px;font-size:1px;">&nbsp;</td>
+  </tr>
+  <tr>
+    <td style="">
+      <table>
+        <tr>
+          <td valign="top" style="vertical-align:top">
+            <table width="280" height="420" style="border-collapse:collapse;border-spacing:0;width:280px;height:420px;margin-left:45px;">
+              <tr>
+                <td valign="top" style="vertical-align:top;background-color:#00adef;"><img src="<%= APP_CONFIG["website_base_url"] %>/system/download_images/<%= program_download["id"] %>/original/<%= program_download["download_image_file_name"] %>" width="280" height="400" style="width:280px;height:400px;"/></td>
+              </tr>
+            </table>
+          </td>
+          <td valign="top" style="vertical-align:top">
+            <table style="border-collapse:collapse;border-spacing:0;margin-left:20px;">
+              <tr>
+                <td style="line-height:14px;">
+                  <img src="<%= APP_CONFIG["website_base_url"] %>/images/programacao_do_mes/calendario.png"/>
+                  &nbsp;<br/>
+                  &nbsp;<br/>
+                  <% program_categories.each do |j,k| %>
+                  <img src="<%= APP_CONFIG["website_base_url"] %>/images/programacao_do_mes/<%= k.parameterize.to_s %>.png"/>&nbsp;<br/>
+
+                  <% programs[j].each do |p| %>
+                  &nbsp;<br/>
+                  <a href="<%= APP_CONFIG["website_base_url"] %>/programa/<%= p["id"] %>/<%= p["permalink"] %>" style="text-decoration:none;font-family:tahoma,sans-serif;color:black;font-size:11px;font-weight:bold;"><span style="color:#00adef;">Dia <%= p["start"] %></span> | <%= p["title"] %></a></span><!--<br/>
+                  <span style="text-decoration:none;font-family:tahoma,sans-serif;color:black;font-size:11px;">Data <%= p["when"] %></span>-->
+                  <% end %>
+
+                  &nbsp;<br/>
+                  &nbsp;<br/>
+                  <img src="<%= APP_CONFIG["website_base_url"] %>/images/programacao_do_mes/plus_sep.png"/>
+                  &nbsp;<br/>
+                  &nbsp;<br/>
+                  <% end %>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" height="10" style="color:#ed0678;font:11px arial,verdana,tahoma,sans-serif;vertical-align:top;padding-top:5px;padding-right:100px;text-align:right;height:10px;">
+      <a href="<%= APP_CONFIG["website_base_url"] %>/cadastro/?id={{subscriber.hash_id}}" style="text-decoration:none;color:#ed0678;">clique aqui para atualizar seu cadastro</a>
+      <br/>
+      &nbsp;<br/>
+      <a href="<%= APP_CONFIG["website_base_url"] %>/cadastro/remover?id={{subscriber.hash_id}}" style="text-decoration:none;color:#ed0678;">clique aqui para não receber mais notificações</a>
+    </td>
+  </tr>
+  <tr>
+    <td><img src="<%= APP_CONFIG["website_base_url"] %>/images/mailing_footer.png" width="900" height="110"/></td>
+  </tr>
+</table>
+</body>
+</html>
